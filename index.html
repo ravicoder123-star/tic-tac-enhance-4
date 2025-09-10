@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TIC Tac Enhance - Premium Themes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#0b79d0">
     <style>
         * {
             margin: 0;
@@ -2276,6 +2278,17 @@
                 backgroundMusic.pause();
             });
         });
+        
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/pwabuilder-sw.js')
+        .then(reg => console.log('ServiceWorker registered:', reg))
+        .catch(err => console.warn('ServiceWorker failed:', err));
+    });
+  }
+
+
+
     </script>
 </body>
 </html>
